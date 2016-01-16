@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+
+  # get 'welcome/index' tells Rails to map requests to http://localhost:3000/welcome/index to the welcome controller's index action.
+  # this was created earlier when you ran the controller generator
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'welcome#index' tells Rails to map requests to the root of the application to the welcome controller's index action
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
