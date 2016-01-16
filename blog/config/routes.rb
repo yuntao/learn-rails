@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'articles/new'
+
   # get 'welcome/index' tells Rails to map requests to http://localhost:3000/welcome/index to the welcome controller's index action.
   # this was created earlier when you ran the controller generator
   get 'welcome/index'
