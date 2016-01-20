@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article = Article.new
   end
 
   def create
@@ -18,8 +19,13 @@ class ArticlesController < ApplicationController
 
     # @article = Article.new(params[:article])
     @article = Article.new(article_params)
-    @article.save
-    redirect_to @article
+
+    # Check validation
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
 
   # Place public methods before any private or protected methods
