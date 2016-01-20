@@ -1,4 +1,9 @@
 class ArticlesController < ApplicationController
+
+  # Basic HTTP authentication
+  # Two popular alternative authentication add-ons for Rails are the Devise rails engine and the Authlogic gem
+  http_basic_authenticate_with name: "user", password: "password", except: [:index, :show]
+
   # Standard CRUD actions order: index, show, new, edit, create, update, destroy
 
   def index
