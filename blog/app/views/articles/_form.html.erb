@@ -1,0 +1,40 @@
+<!--Reusable partial view-->
+<!--http://guides.rubyonrails.org/layouts_and_rendering.html-->
+
+<!--http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for-->
+<%= form_for @article do |f| %>
+
+    <!--Check for error message-->
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@article.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+
+          <!--Rails automatically wraps fields that contain an error with a div with class field_with_errors. You can define a css rule to make them standout.-->
+
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <!--Form-->
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :text %><br>
+      <%= f.text_area :text %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
