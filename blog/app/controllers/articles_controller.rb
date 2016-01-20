@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   # Standard CRUD actions order: index, show, new, edit, create, update, destroy
 
+  def index
+    @articles = Article.all
+  end
+
   def show
     # hold reference in an instance article variable
     @article = Article.find(params[:id])
